@@ -1,0 +1,25 @@
+{
+  "name": "live",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabio/live.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pabio/live/issues"
+  },
+  "homepage": "https://live.pabio.com",
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
