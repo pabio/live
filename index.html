@@ -2,9 +2,276 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>My First Parcel App</title>
+    <title>Pabio Live</title>
+    <meta name="title" content="Pabio Live" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://pabio.com/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://pabio.com/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://pabio.com/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://pabio.com/safari-pinned-tab.svg"
+      color="#fff"
+    />
+    <meta
+      name="description"
+      content="Live 🔴 from the Zurich train station from Sunday September 11 to Wednesday September 14"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://live.pabio.com" />
+    <meta property="og:title" content="Pabio Live" />
+    <meta
+      property="og:description"
+      content="🔴 Live from the Zurich train station from Sunday September 11 to Wednesday September 14"
+    />
+    <meta
+      property="og:image"
+      content="https://pabiousercontent.com/assets/asset_X4o0Y2vLVXQioi3XCSnLzSqc/579fb807-74c2-4ac2-b0e3-04db5885278a.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://live.pabio.com" />
+    <meta property="twitter:title" content="Pabio Live" />
+    <meta
+      property="twitter:description"
+      content="🔴 Live from the Zurich train station from Sunday September 11 to Wednesday September 14"
+    />
+    <meta
+      property="twitter:image"
+      content="https://pabiousercontent.com/assets/asset_X4o0Y2vLVXQioi3XCSnLzSqc/579fb807-74c2-4ac2-b0e3-04db5885278a.png"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      mux-player {
+        width: 100vw;
+        height: 100vh;
+      }
+      .logo {
+        position: fixed;
+        z-index: 10;
+        left: 2rem;
+        top: 2rem;
+      }
+      .logo svg {
+        height: 1.5rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <a
+      class="logo"
+      href="https://pabio.com?utm_source=livestream&utm_medium=logo&utm_campaign=sleepover_livestream"
+      target="_blank"
+    >
+      <svg viewbox="0 0 900 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0 11v241h55v-82h45c56 0 81-39 81-79s-25-80-81-80H0zm55 111V59h42c21 0 29 16 29 32 0 15-8 31-29 31H55zm270-14a65 65 0 00-52-23c-46 0-78 34-78 85s32 86 78 86c20 0 40-9 52-25v21h51V89h-51v19zm-40 100c-22 0-38-18-38-38 0-21 16-38 38-38 21 0 38 17 38 38 0 20-17 38-38 38zM522 85c-16 0-38 6-50 22V0h-52v252h52v-18c12 15 34 22 50 22 41 0 80-33 80-86s-39-85-80-85zm-10 123c-20 0-38-17-38-38s18-38 38-38 37 17 37 38-17 38-37 38zM662 64c18 0 32-13 32-30S680 4 662 4c-17 0-32 13-32 30s15 30 32 30zm26 188V89h-52v163h52zm123 4c47 0 89-34 89-86 0-51-42-85-89-85s-89 34-89 85c0 52 42 86 89 86zm0-48c-20 0-36-15-36-38 0-22 16-38 36-38s36 16 36 38c0 23-16 38-36 38z"
+          fill="#FF6B6B"
+        />
+      </svg>
+    </a>
+    <script src="https://unpkg.com/@mux/mux-player"></script>
+    <mux-player
+      autoplay="any"
+      primary-color="#ff6b6b"
+      stream-type="live"
+      playback-id="u9OA12v01o00wALkXHuoYbikyqyK8ZLHw00BmeO6ZipIwY"
+      metadata-id="cb52cqfs6Xd2QfTjfNgd849aymeo02FrkI3E01hYfJKrY"
+      metadata-video-title="Pabio Live"
+    ></mux-player>
+    <script>
+      const muxPlayer = document.querySelector("mux-player");
+      [
+        "pause",
+        "play",
+        "seeked",
+        "waiting",
+        "volumechange",
+        "suspend",
+        "stalled",
+        "ratechange",
+      ].forEach((event) => {
+        muxPlayer.addEventListener(event, function () {
+          console.log("Livestream: " + event);
+          try {
+            if (
+              typeof window !== "undefined" &&
+              "dataLayer" in window &&
+              typeof window.dataLayer === "object"
+            )
+              window.dataLayer.push({ event: "Livestream: " + event });
+            if (
+              typeof window !== "undefined" &&
+              "analytics" in window &&
+              typeof window.analytics === "object" &&
+              "track" in window.analytics &&
+              typeof window.analytics.track === "function"
+            )
+              window.analytics.track("Livestream: " + event);
+            if (
+              typeof window !== "undefined" &&
+              "posthog" in window &&
+              typeof window.posthog === "object" &&
+              "capture" in window.posthog
+            )
+              window.posthog.capture("Livestream: " + event);
+          } catch (error) {
+            console.log("ERROR in tracking", event, error);
+          }
+        });
+      });
+    </script>
+    <script>
+      !(function () {
+        var analytics = (window.analytics = window.analytics || []);
+        if (!analytics.initialize)
+          if (analytics.invoked)
+            window.console &&
+              console.error &&
+              console.error("Segment snippet included twice.");
+          else {
+            analytics.invoked = !0;
+            analytics.methods = [
+              "trackSubmit",
+              "trackClick",
+              "trackLink",
+              "trackForm",
+              "pageview",
+              "identify",
+              "reset",
+              "group",
+              "track",
+              "ready",
+              "alias",
+              "debug",
+              "page",
+              "once",
+              "off",
+              "on",
+              "addSourceMiddleware",
+              "addIntegrationMiddleware",
+              "setAnonymousId",
+              "addDestinationMiddleware",
+            ];
+            analytics.factory = function (e) {
+              return function () {
+                var t = Array.prototype.slice.call(arguments);
+                t.unshift(e);
+                analytics.push(t);
+                return analytics;
+              };
+            };
+            for (var e = 0; e < analytics.methods.length; e++) {
+              var key = analytics.methods[e];
+              analytics[key] = analytics.factory(key);
+            }
+            analytics.load = function (key, e) {
+              var t = document.createElement("script");
+              t.type = "text/javascript";
+              t.async = !0;
+              t.src =
+                "https://cdn.segment.com/analytics.js/v1/" +
+                key +
+                "/analytics.min.js";
+              var n = document.getElementsByTagName("script")[0];
+              n.parentNode.insertBefore(t, n);
+              analytics._loadOptions = e;
+            };
+            analytics._writeKey = "IEuA6uBzRLPQKFmJrDuGtRZ6Aend0rqV";
+            analytics.SNIPPET_VERSION = "4.15.3";
+            analytics.load("IEuA6uBzRLPQKFmJrDuGtRZ6Aend0rqV");
+            analytics.page();
+          }
+      })();
+    </script>
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split(".");
+              2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                });
+            }
+            ((p = t.createElement("script")).type = "text/javascript"),
+              (p.async = !0),
+              (p.src = s.api_host + "/static/array.js"),
+              (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(
+                p,
+                r
+              );
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = "posthog";
+                  return (
+                    "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e
+                  );
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + ".people (stub)";
+                },
+                o =
+                  "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(
+                    " "
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init("_SRYn0zxe8Sc7GKr_0tYcYVBOnKFPJZTZv6hdEVsaak", {
+        api_host: "https://app.posthog.com",
+      });
+    </script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KK65C8L");
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.run@latest"></script>
+    <script>
+      window.H.init("k4g8r9d5");
+    </script>
+    <script
+      src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+      type="text/javascript"
+      charset="UTF-8"
+      data-domain-script="1439fd10-3274-49e2-b7d4-572cb14bb511"
+    ></script>
   </body>
 </html>
