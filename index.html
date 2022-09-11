@@ -131,36 +131,36 @@
       >
     </div>
     <script src="https://unpkg.com/@mux/mux-player"></script>
-    <h1>Starting <span class="timer">at 13:00 on Sunday</span></h1>
+    <!-- <h1>Starting <span class="timer">at 13:00 on Sunday</span></h1> -->
     <script>
-      var countDownDate = new Date("2022-09-11T15:00:00.000Z").getTime();
-      function update() {
-        var now = new Date().getTime();
-        var distance = countDownDate - now;
-        var hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        var timer = document.querySelector(".timer");
-        if (timer)
-          timer.innerHTML =
-            "in " +
-            hours +
-            " hours, " +
-            minutes +
-            " minutes, " +
-            seconds +
-            " seconds ";
-        if (distance < 0) {
-          clearInterval(x);
-          if (timer) timer.innerHTML = "soon!";
-        }
-      }
-      update();
-      var x = setInterval(function () {
-        update();
-      }, 1000);
+      // var countDownDate = new Date("2022-09-11T15:00:00.000Z").getTime();
+      // function update() {
+      //   var now = new Date().getTime();
+      //   var distance = countDownDate - now;
+      //   var hours = Math.floor(
+      //     (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      //   );
+      //   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      //   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      //   var timer = document.querySelector(".timer");
+      //   if (timer)
+      //     timer.innerHTML =
+      //       "in " +
+      //       hours +
+      //       " hours, " +
+      //       minutes +
+      //       " minutes, " +
+      //       seconds +
+      //       " seconds ";
+      //   if (distance < 0) {
+      //     clearInterval(x);
+      //     if (timer) timer.innerHTML = "soon!";
+      //   }
+      // }
+      // update();
+      // var x = setInterval(function () {
+      //   update();
+      // }, 1000);
       var cta = document.querySelector(".cta");
       if (
         cta &&
@@ -170,14 +170,14 @@
         cta.innerHTML = "Jetzt starten";
     </script>
 
-    <!-- <mux-player
+    <mux-player
       autoplay="any"
       primary-color="#ff6b6b"
       stream-type="live"
-      playback-id="u9OA12v01o00wALkXHuoYbikyqyK8ZLHw00BmeO6ZipIwY"
-      metadata-id="cb52cqfs6Xd2QfTjfNgd849aymeo02FrkI3E01hYfJKrY"
+      playback-id="gcnq9MN500TFtEVuzrOUJEoTwgSdaMRICxkI6MVmhc00E"
+      metadata-id="TCAdMdacU01ZdWxE01MTOcxV8RjmftdMnzXeJ01koB02UUM"
       metadata-video-title="Pabio Live"
-    ></mux-player> -->
+    ></mux-player>
 
     <!-- Google tag (gtag.js) -->
     <script
