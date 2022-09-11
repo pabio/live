@@ -121,14 +121,14 @@
             " minutes, " +
             seconds +
             " seconds ";
-      }
-      update();
-      var x = setInterval(function () {
-        update();
         if (distance < 0) {
           clearInterval(x);
           if (timer) timer.innerHTML = "soon!";
         }
+      }
+      update();
+      var x = setInterval(function () {
+        update();
       }, 1000);
     </script>
 
