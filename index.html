@@ -63,7 +63,9 @@
         font-display: swap;
       }
       body {
-        margin: 0;
+        max-width: 600px;
+        margin: auto;
+        padding: 1rem;
         overflow: hidden;
         font-family: "PabioFont", sans-serif, sans-serif;
         color: #aaa;
@@ -131,7 +133,10 @@
       >
     </div>
     <script src="https://unpkg.com/@mux/mux-player"></script>
-    <!-- <h1>Starting <span class="timer">at 13:00 on Sunday</span></h1> -->
+    <h1>
+      The livestream is over. A link to view the recording will be available
+      shortly.
+    </h1>
     <script>
       // var countDownDate = new Date("2022-09-11T15:00:00.000Z").getTime();
       // function update() {
@@ -170,14 +175,14 @@
         cta.innerHTML = "Jetzt starten";
     </script>
 
-    <mux-player
+    <!-- <mux-player
       autoplay="any"
       primary-color="#ff6b6b"
       stream-type="live"
       playback-id="gcnq9MN500TFtEVuzrOUJEoTwgSdaMRICxkI6MVmhc00E"
       metadata-id="TCAdMdacU01ZdWxE01MTOcxV8RjmftdMnzXeJ01koB02UUM"
       metadata-video-title="Pabio Live"
-    ></mux-player>
+    ></mux-player> -->
 
     <!-- Google tag (gtag.js) -->
     <script
